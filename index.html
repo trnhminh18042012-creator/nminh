@@ -1,0 +1,962 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+    <title>Blaze Tech Cracked</title>
+    <link rel="stylesheet" href="styles.css" />    
+<style>
+      .crosshair-panel h3 {
+        color: #fff;
+        font-size: 16px;
+        text-align: center;
+        margin-bottom: 20px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        text-shadow: 0 0 10px rgba(255,0,0,0.5);
+      }
+      #virtual-crosshair {
+        position: fixed; 
+        top: 50%; 
+        left: 50%; 
+        z-index: 999999; 
+        pointer-events: none; 
+        transform: translate(calc(-50% + var(--xh-x)), calc(-50% + var(--xh-y))) scale(var(--xh-size)); 
+        display: none;
+      }
+      .xh-svg {
+        width: 60px;
+        height: 60px;
+        filter: drop-shadow(0 0 5px rgba(0,0,0,0.8));
+      }
+      .xh-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 15px; 
+        margin-bottom: 20px;
+      }
+      .xh-option {
+        background: rgba(0,0,0,0.4);
+        border: 1px solid rgba(255,255,255,0.1);
+        border-radius: 8px;
+        padding: 15px 10px;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: all 0.2s;
+      }
+      .xh-option.active {
+        border-color: #ff0044;
+        background: rgba(255,0,68,0.15);
+      }
+      .xh-preview {
+        width: 45px;
+        height: 45px;
+      }
+      .xh-control-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 15px;
+      }
+      .neon-slider-wrapper {
+        margin-bottom: 15px;
+      }
+      .neon-slider {
+        -webkit-appearance: none;
+        width: 100%;
+        height: 6px;
+        background: #333;
+        border-radius: 5px;
+        outline: none;
+      }
+      .neon-slider::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        background: #ff0044;
+        cursor: pointer;
+        box-shadow: 0 0 5px rgba(255,0,68,0.8);
+      }
+      .slider-header {
+        display: flex;
+        justify-content: space-between;
+        color: #fff;
+        font-size: 13px;
+        margin-bottom: 8px;
+        margin-top: 15px;
+      }
+      .color-wheel-container {
+        position: relative;
+        width: 160px;
+        height: 160px;
+        margin: 0 auto;
+        border-radius: 50%;
+        background: conic-gradient(from 90deg, red, yellow, lime, aqua, blue, magenta, red);
+        box-shadow: 0 0 15px rgba(0,0,0,0.6), inset 0 0 10px rgba(0,0,0,0.5);
+        cursor: crosshair;
+        touch-action: none;
+      }
+      
+    </style>
+  <style id="flame-brand-premium-v2">
+/* Blaze Tech Cracked — cleaner premium intro: stable text + one soft light sweep */
+.flame-brand{position:relative;display:inline-flex;align-items:center;gap:.28em;font-weight:900;font-style:italic;letter-spacing:.08em;font-size:clamp(22px,4vw,38px);line-height:1;text-transform:uppercase;color:#fff;text-shadow:0 0 7px rgba(255,55,25,.38),0 0 16px rgba(255,30,0,.20);overflow:hidden;animation:brandSettle .7s cubic-bezier(.22,.8,.22,1) both}
+.flame-brand span{color:#fff;position:relative;z-index:1}
+.flame-brand b{position:relative;z-index:1;font-weight:900;background:linear-gradient(90deg,#fff 0%,#fff 38%,#ff6b50 50%,#fff 62%,#fff 100%);background-size:220% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:brandColorSweep 4.8s cubic-bezier(.45,0,.55,1) .45s infinite}
+.flame-brand:after{content:"";position:absolute;z-index:2;top:-35%;bottom:-35%;left:-35%;width:18%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.78),transparent);transform:skewX(-18deg) translateX(-260%);filter:blur(1px);animation:brandLightSweep 4.8s cubic-bezier(.45,0,.55,1) .9s infinite;pointer-events:none}
+@keyframes brandSettle{0%{opacity:0;transform:translateY(7px);filter:blur(5px)}100%{opacity:1;transform:translateY(0);filter:blur(0)}}
+@keyframes brandColorSweep{0%,55%{background-position:100% 0}72%,100%{background-position:-100% 0}}
+@keyframes brandLightSweep{0%,52%{transform:skewX(-18deg) translateX(-260%);opacity:0}62%{opacity:.9}74%,100%{transform:skewX(-18deg) translateX(720%);opacity:0}}
+@media(prefers-reduced-motion:reduce){.flame-brand,.flame-brand b,.flame-brand:after{animation:none!important}.flame-brand{opacity:1;transform:none;filter:none}}
+</style>
+<style id="flame-v11-full-fix">
+.live-dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:#ff3045;box-shadow:0 0 9px #ff3045;animation:flamePulse 1s ease-in-out infinite;margin-right:4px}@keyframes flamePulse{50%{opacity:.35;transform:scale(.7)}}
+.bottom-nav .bottom-item{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px}.bottom-nav .bottom-icon{display:flex;width:24px;height:24px;align-items:center;justify-content:center}.bottom-nav .bottom-icon svg{width:23px;height:23px;fill:none;stroke:#ff5666;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;filter:drop-shadow(0 0 5px rgba(255,30,50,.5))}.bottom-nav .bottom-item.is-active .bottom-icon svg{stroke:#fff}.bottom-nav .bottom-label{font-size:8px;font-weight:800;letter-spacing:.12em;color:#c98c93}.bottom-nav .bottom-item.is-active .bottom-label{color:#fff}
+</style>
+
+<style id="flame-premium-switches">
+/* Blaze Tech Cracked V12 — FINAL PREMIUM SWITCH FIX */
+.feature-item{transition:transform .22s ease,box-shadow .28s ease,border-color .28s ease,background .28s ease}
+.feature-item.is-enabled{
+  border-color:rgba(255,42,64,.78)!important;
+  background:linear-gradient(115deg,rgba(35,2,8,.98),rgba(10,0,3,.96))!important;
+  box-shadow:0 0 0 1px rgba(255,35,55,.08),0 0 24px rgba(255,20,45,.13),inset 0 0 24px rgba(255,20,45,.06)!important;
+}
+.toggle{
+  position:relative!important;width:94px!important;height:42px!important;display:block!important;
+  flex:0 0 94px!important;cursor:pointer;touch-action:manipulation;
+  filter:drop-shadow(0 0 7px rgba(255,20,45,.14));
+}
+.toggle input{
+  position:absolute!important;opacity:0!important;width:1px!important;height:1px!important;
+  pointer-events:none!important;
+}
+.toggle .switch{
+  position:absolute!important;inset:0!important;width:100%!important;height:100%!important;
+  box-sizing:border-box!important;border-radius:999px!important;overflow:hidden!important;
+  background:linear-gradient(145deg,#13050a 0%,#050103 100%)!important;
+  border:1px solid rgba(255,48,70,.48)!important;
+  box-shadow:inset 0 2px 8px rgba(0,0,0,.82),inset 0 0 14px rgba(255,20,40,.08),0 0 0 1px rgba(255,20,40,.04)!important;
+  transition:background .28s ease,border-color .28s ease,box-shadow .28s ease!important;
+}
+/* status text */
+.toggle .switch:before{
+  content:"OFF";position:absolute;right:9px;top:0;bottom:0;display:flex;align-items:center;justify-content:center;
+  z-index:2;color:#b77a82;font:900 9px/1 Arial,sans-serif;letter-spacing:.14em;
+  text-shadow:0 1px 3px #000;transition:color .25s ease,left .25s ease,right .25s ease;
+}
+/* luminous thumb */
+.toggle .switch:after{
+  content:"";position:absolute;left:4px;top:4px;width:32px;height:32px;border-radius:50%;z-index:3;
+  background:radial-gradient(circle at 33% 28%,#fff 0 8%,#ffd6da 20%,#ff5265 53%,#b5001c 100%);
+  box-shadow:0 0 8px rgba(255,38,58,.55),0 0 19px rgba(255,0,30,.22),inset 2px 2px 4px rgba(255,255,255,.5),inset -3px -4px 7px rgba(60,0,10,.5);
+  transition:transform .3s cubic-bezier(.2,.85,.2,1),box-shadow .25s ease,filter .25s ease;
+}
+.toggle input:checked + .switch{
+  background:linear-gradient(105deg,#3b0010 0%,#180007 52%,#4b0012 100%)!important;
+  border-color:#ff3d55!important;
+  box-shadow:inset 0 0 18px rgba(255,0,35,.18),0 0 13px rgba(255,20,45,.22),0 0 30px rgba(255,0,35,.09)!important;
+}
+.toggle input:checked + .switch:before{
+  content:"ON";left:9px;right:auto;color:#fff;text-shadow:0 0 9px #ff3c52;
+}
+.toggle input:checked + .switch:after{
+  transform:translateX(calc(100% - 40px));
+  box-shadow:0 0 12px rgba(255,255,255,.65),0 0 25px rgba(255,20,45,.7),inset 2px 2px 4px rgba(255,255,255,.6),inset -3px -4px 7px rgba(70,0,10,.45);
+  animation:flameSwitchPulse 1.65s ease-in-out infinite;
+}
+.toggle:active .switch:after{filter:brightness(1.12);transform:scale(.91)}
+.toggle input:checked + .switch:active:after{transform:translateX(52px) scale(.91)}
+@keyframes flameSwitchPulse{50%{filter:brightness(1.12);box-shadow:0 0 17px rgba(255,255,255,.72),0 0 32px rgba(255,20,45,.75),inset 2px 2px 4px rgba(255,255,255,.65)}}
+.feature-item.is-enabled .feature-icon{filter:drop-shadow(0 0 8px rgba(255,30,50,.65));color:#ff5364}
+@media(max-width:430px){
+  .toggle{width:88px!important;height:40px!important;flex-basis:88px!important}
+  .toggle .switch:after{width:30px;height:30px;top:4px;left:4px}
+  .toggle input:checked + .switch:after{transform:translateX(48px)}
+  .toggle input:checked + .switch:active:after{transform:translateX(48px) scale(.91)}
+  .toggle .switch:before{right:9px;font-size:8px}
+  .toggle input:checked + .switch:before{left:10px}
+}
+</style>
+</head>
+  <body>
+
+    <div id="virtual-crosshair" style="--xh-color: #ff0044; --xh-size: 1; --xh-x: 0px; --xh-y: 0px;"></div>
+    <div class="app">
+      <div class="main">
+        <header class="main-header">
+          <div class="header-left">
+            <div class="flame-brand" aria-label="Blaze Tech Cracked"><span>BLAZE</span><b>TECH</b></div>
+          </div>
+        </header>
+
+        <section class="home-section" id="homeSection">
+          <div class="hero-title-block" aria-label="Blaze Tech Cracked">
+            <div class="hero-welcome">WELCOME TO</div>
+            <div class="hero-name"><span>BLAZE</span> <b>TECH</b></div>
+            <div class="hero-tag"><i></i> POWER <em>•</em> PERFORMANCE <em>•</em> DOMINATE <i></i></div>
+          </div>
+          <div class="home-hero">
+            <img class="home-hero-img" src="img/Tech-hero-clean.gif" alt="Blaze Tech Cracked hero" />
+          </div>
+          <div class="flame-status-grid" aria-label="System status">
+            <div class="status-card"><span class="status-label">FPS</span><strong id="ftFps">--</strong><small><span class="live-dot"></span> LIVE</small></div>
+            <div class="status-card"><span class="status-label">PING</span><strong id="ftPing">--</strong><small>MS</small></div>
+            <div class="status-card"><span class="status-label">RAM</span><strong id="ftRam">--</strong><small>% USED</small></div>
+            <div class="status-card"><span class="status-label">SYSTEM</span><strong class="online" id="ftSystem">ONLINE</strong><small>BLAZE CORE</small></div>
+          </div>
+          <div class="home-grid">
+            <article class="profile-card">
+              <div class="profile-avatar">
+                <img src="img/devchicuong.jpg" alt="Hoàng Cha Đẻ Cường Ngu" />
+              </div>
+              <div class="profile-body">
+                <h2>Chí Cường</h2>
+                <p>Developer / Admin</p>
+              </div>
+              <div class="profile-links">
+                <a class="profile-btn facebook" href="" target="_blank" rel="noopener">Facebook</a>
+                <a class="profile-btn zalo" href="https://zalo.me/0996497975">Zalo</a>
+                <a class="profile-btn tiktok" href="https://www.tiktok.com/@chicuong.trumfile?_r=1&_t=ZS-98qvpAcc6FU" target="_blank" rel="noopener">TikTok</a>
+              </div>
+            </article>
+          </div>
+        </section>
+        <section class="premium-banner" id="premiumSection">
+          <div class="premium-head">
+            <div class="premium-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M4 18h16v2H4zM4 6l4 6 4-6 4 6 4-6v10H4z" />
+<defs>
+  <linearGradient id="crownGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#FF0000"/>
+    <stop offset="100%" stop-color="#FF0000"/>
+  </linearGradient>
+</defs>
+              </svg>
+            </div>
+            <div class="premium-text">
+              <p class="premium-title">BLAZE Cracked CONTROL CENTER</p>
+            </div>
+          </div>
+          <div class="feature-list">
+            <div class="feature-grid">
+              <div class="feature-item">
+                <div class="feature-content">
+                  <div class="feature-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                      <circle cx="12" cy="12" r="5"></circle>
+                      <path d="M12 3v3M12 18v3M3 12h3M18 12h3"></path>
+                      <circle cx="12" cy="12" r="1.5" fill="currentColor" stroke="none"></circle>
+                    </svg>
+                  </div>
+                  <div class="feature-copy">
+                    <p class="feature-name">AIMLOCK</p>
+                    <p class="feature-sub">Bám ĐầuThông Minh - AI Tự Động Căn Chỉnh Tâm Ngắm Vào Đầu</p>
+                  </div>
+                </div>
+                <label class="toggle">
+                  <input id="aimlockToggle" class="sound-toggle" type="checkbox" />
+                  <span class="switch" aria-hidden="true"></span>
+                </label>
+              </div>
+              <div class="feature-item">
+                <div class="feature-content">
+                  <div class="feature-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                      <path d="M12 3l7 3v5c0 5-3.5 8-7 10-3.5-2-7-5-7-10V6l7-3z"></path>
+                      <path d="M8 12h2l1.5-2 1.5 4 1.5-2H16"></path>
+                    </svg>
+                  </div>
+                  <div class="feature-copy">
+                    <p class="feature-name">STABILITY ASSIST</p>
+                    <p class="feature-sub">Nhẹ Tâm - Ổn Định Tâm Ngắm , Giảm Độ Năng Khi Kéo Tâm</p>
+                  </div>
+                </div>
+                <label class="toggle">
+                  <input id="stabilityAssistToggle" class="sound-toggle" type="checkbox" />
+                  <span class="switch" aria-hidden="true"></span>
+                </label>
+              </div>
+              <div class="feature-item">
+                <div class="feature-content">
+                  <div class="feature-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                      <path d="M12 3v10"></path>
+                      <path d="M8 7h8"></path>
+                      <path d="M6 13a6 6 0 0 0 12 0"></path>
+                    </svg>
+                  </div>
+                  <div class="feature-copy">
+                    <p class="feature-name">AIM HOLD</p>
+                    <p class="feature-sub">Ghìm Tâm - Giữ Cố Định Tâm Ngắm Khi Kéo Tâm</p>
+                  </div>
+                </div>
+                <label class="toggle">
+                  <input id="aimHoldToggle" class="sound-toggle" type="checkbox" />
+                  <span class="switch" aria-hidden="true"></span>
+                </label>
+              </div>
+              <div class="feature-item">
+                <div class="feature-content">
+                  <div class="feature-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                      <rect x="7" y="11" width="10" height="8" rx="2"></rect>
+                      <path d="M9 11V8a3 3 0 0 1 6 0v3"></path>
+                      <path d="M12 14v2"></path>
+                    </svg>
+                  </div>
+                  <div class="feature-copy">
+                    <p class="feature-name">AIM LOCKDOWN</p>
+                    <p class="feature-sub">Đầm Tâm - Khoá Vị Trí Mục Tiêu Khi Nhấn Nút Bắn</p>
+                  </div>
+                </div>
+                <label class="toggle">
+                  <input id="aimLockdownToggle" class="sound-toggle" type="checkbox" />
+                  <span class="switch" aria-hidden="true"></span>
+                </label>
+              </div>
+              <div class="feature-item">
+                <div class="feature-content">
+                  <div class="feature-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                      <path d="M4 14a8 8 0 1 1 16 0"></path>
+                      <path d="M12 14l4-4"></path>
+                      <path d="M11 10l-2 3h2l-1 4 4-6h-2l1-1z"></path>
+                    </svg>
+                  </div>
+                  <div class="feature-copy">
+                    <p class="feature-name">SENSITIVITY BOOSTER</p>
+                    <p class="feature-sub">Nhạy - Tăng Độ Nhạy Cảm Ứng Và Tác Vụ Nhanh Hơn</p>
+                  </div>
+                </div>
+                <label class="toggle">
+                  <input id="sensitivityBoostToggle" class="sound-toggle" type="checkbox" />
+                  <span class="switch" aria-hidden="true"></span>
+                </label>
+              </div>
+              <div class="feature-item">
+                <div class="feature-content">
+                  <div class="feature-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                      <rect x="4" y="5" width="16" height="11" rx="2"></rect>
+                      <path d="M10 19h4"></path>
+                      <path d="M12 16v3"></path>
+                      <path d="M16.5 8.5l.6 1.4 1.4.6-1.4.6-.6 1.4-.6-1.4-1.4-.6 1.4-.6z"></path>
+                    </svg>
+                  </div>
+                  <div class="feature-copy">
+                    <p class="feature-name">SCREEN BOOSTER</p>
+                    <p class="feature-sub">Buff Màn - Nâng Cao Chất Lượng Hình Ảnh Mượt Mà Hơn</p>
+                  </div>
+                </div>
+                <label class="toggle">
+                  <input id="screenBoostToggle" class="sound-toggle" type="checkbox" />
+                  <span class="switch" aria-hidden="true"></span>
+                </label>
+              </div>
+              <div class="feature-item">
+                <div class="feature-content">
+                  <div class="feature-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                      <circle cx="12" cy="9" r="3.5"></circle>
+                      <path d="M12 3v2M12 13v2M6 9h2M16 9h2"></path>
+                      <path d="M7 19c1.8-2.4 8.2-2.4 10 0"></path>
+                    </svg>
+                  </div>
+                  <div class="feature-copy">
+                    <p class="feature-name">HEADSHOT FIX</p>
+                    <p class="feature-sub">Fix Lố Đầu - Tinh Chỉnh Chỉ Sai Số Điểm Ngắm Tâm Đầu Chính Xác</p>
+                  </div>
+                </div>
+                <label class="toggle">
+                  <input id="headshotFixToggle" class="sound-toggle" type="checkbox" />
+                  <span class="switch" aria-hidden="true"></span>
+                </label>
+              </div>
+              <div class="feature-item">
+                <div class="feature-content">
+                  <div class="feature-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                      <path d="M5 12h10"></path>
+                      <path d="M15 9l4 3-4 3"></path>
+                      <path d="M5 9v6"></path>
+                    </svg>
+                  </div>
+                  <div class="feature-copy">
+                    <p class="feature-name">BULLET ALIGN</p>
+                    <p class="feature-sub">Fix Lạc Đạn - Căn Chỉnh Đường Đạn Chính Xác Với Tâm Mục Tiêu</p>
+                  </div>
+                </div>
+                <label class="toggle">
+                  <input id="bulletAlignToggle" class="sound-toggle" type="checkbox" />
+                  <span class="switch" aria-hidden="true"></span>
+                </label>
+              </div>
+              <div class="feature-item">
+                <div class="feature-content">
+                  <div class="feature-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                      <path d="M5 9c2-2 4 2 7 0s5-2 7 0"></path>
+                      <path d="M5 15c2-2 4 2 7 0s5-2 7 0"></path>
+                      <path d="M7 4l10 16"></path>
+                    </svg>
+                  </div>
+                  <div class="feature-copy">
+                    <p class="feature-name">SHAKE FIX</p>
+                    <p class="feature-sub">Fix Rung - Khử Rung Tâm Súng Khi Tấn Công Vào Mục Tiêu</p>
+                  </div>
+                </div>
+                <label class="toggle">
+                  <input id="shakeFixToggle" class="sound-toggle" type="checkbox" />
+                  <span class="switch" aria-hidden="true"></span>
+                </label>
+              </div>
+            </div>
+          </div>
+        <div>
+                <div class="crosshair-panel">
+            <h3>CÀI ĐẶT TÂM ẢO</h3>
+
+            <div class="feature-item">
+                <div class="feature-content">
+                  <div class="feature-icon" aria-hidden="true">
+                     <svg viewBox="0 0 20 20" fill="none" stroke-width="1.5">
+                    <circle cx="10" cy="10" r="7"></circle>
+                    <circle cx="10" cy="10" r="3"></circle>
+                    <circle cx="10" cy="10" r="1" fill="currentColor" stroke="none"></circle>
+                    <line x1="10" y1="3" x2="10" y2="7"></line>
+                    <line x1="10" y1="13" x2="10" y2="17"></line>
+                    <line x1="3" y1="10" x2="7" y2="10"></line>
+                    <line x1="13" y1="10" x2="17" y2="10"></line>
+                    </svg>
+                  </div>              
+    <div class="feature-copy">
+      <p class="feature-name">TÂM ẢO</p>
+      <p class="feature-sub">Tâm Súng Ảo - Căn Chỉnh Tâm Đầu , Giữ Tâm Ổn Định Tăng Tỉ Lệ Headshot</p>
+    </div>
+
+  </div>
+              <label class="toggle">
+                <input id="crosshair-toggle" class="sound-toggle" type="checkbox" />
+                <span class="switch" aria-hidden="true"></span>
+              </label>
+            </div>
+            <h4 style="color:#fff; font-size:13px; margin-bottom:10px;">STYLE PRESET</h4>
+            <div class="xh-grid">
+                <div class="xh-option active" id="xh-opt-1" onclick="setXhType(1)"><div class="xh-preview" id="preview-1"></div></div>
+                <div class="xh-option" id="xh-opt-2" onclick="setXhType(2)"><div class="xh-preview" id="preview-2"></div></div>
+                <div class="xh-option" id="xh-opt-3" onclick="setXhType(3)"><div class="xh-preview" id="preview-3"></div></div>
+                <div class="xh-option" id="xh-opt-4" onclick="setXhType(4)"><div class="xh-preview" id="preview-4"></div></div>
+            </div>
+
+            <div style="text-align: center; margin-top: 25px; margin-bottom: 25px;">
+              <p style="color: #fff; font-size: 13px; font-weight: bold; margin-bottom: 12px; letter-spacing: 1px;">MÀU SẮC CHỦ ĐẠO</p>
+              <div class="color-wheel-container" id="vcColorWheel">
+                <div class="color-wheel-thumb" id="vcColorThumb"></div>
+              </div>
+            </div>
+            <div class="slider-header"><div class="sh-left">KÍCH CỠ TÂM</div><div class="sh-right" id="xh-size-lbl">1.0x</div></div>
+            <div class="neon-slider-wrapper"><input type="range" id="xh-size-slider" class="neon-slider" min="0.1" max="3" step="0.05" value="1" oninput="updateXh()"></div>
+
+            <div class="slider-header"><div class="sh-left">TRỤC X</div><div class="sh-right" id="xh-x-lbl">0px</div></div>
+            <div class="neon-slider-wrapper"><input type="range" id="xh-x-slider" class="neon-slider" min="-200" max="200" step="1" value="0" oninput="updateXh()"></div>
+
+            <div class="slider-header"><div class="sh-left">TRỤC Y</div><div class="sh-right" id="xh-y-lbl">0px</div></div>
+            <div class="neon-slider-wrapper"><input type="range" id="xh-y-slider" class="neon-slider" min="-200" max="200" step="1" value="0" oninput="updateXh()"></div>
+          </div>
+          </section>
+
+        <section class="monitor-section is-hidden" id="monitorSection">
+          <div class="rt-monitor">
+            <div class="wrap">
+              <header>
+                <div class="title">
+                </div>
+
+              </header>
+
+              <div class="grid">
+                <section class="panel">
+                  <div class="panelHead">
+                    <div class="name">CPU & RAM Wave</div>
+                    <div class="meta">
+                      <span class="badge">FPS: <b id="mFps">0</b></span>
+                      <span class="badge">Frame: <b id="mFrame">0.0</b> ms</span>
+                      <span class="badge">CPU est: <b id="mCpu">0</b>%</span>
+                      <span class="badge">RAM: <b id="mRam">N/A</b></span>
+                    </div>
+                  </div>
+
+                  <div class="panelBody">
+                    <div class="charts spaced-top">
+                      <div class="chartBox">
+                        <div class="chartTop">
+                          <span>CPU (Ước Lượng Theo Giời Gian Bận Mỗi Frame)</span>
+                          <span class="badge">Target: <span id="mTarget">120</span> FPS</span>
+                        </div>
+                        <canvas id="cpuCanvas" width="900" height="180"></canvas>
+                      </div>
+
+                      <div class="chartBox">
+                        <div class="chartTop">
+                          <span>RAM (MB) / Heap Used</span>
+                          <span class="badge">Scale Auto</span>
+                        </div>
+                        <canvas id="ramCanvas" width="900" height="180"></canvas>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+
+                <section class="panel">
+                  <div class="panelHead controls-head">
+                    <div class="name">Controls</div>
+                  </div>
+
+                  <div class="panelBody controls-panel">
+                    <div class="optimizer-head">
+                      <div>
+                        <span class="optimizer-kicker">Blaze Tech Cracked OPTIMIZER</span>
+                        <strong>ROUTE OPTIMIZATION</strong>
+                      </div>
+                      <span class="optimizer-status"><i></i> READY</span>
+                    </div>
+
+                    <div class="optimizer-feature">
+                      <button id="btnLock" class="toggleOn optimizer-fps">
+                        <span class="optimizer-icon">FPS</span>
+                        <span class="optimizer-copy"><b>UnLock 120 FPS</b><small>Ưu tiên frame ổn định & phản hồi nhanh</small></span>
+                        <span class="optimizer-value">OFF</span>
+                      </button>
+                    </div>
+
+                    <div class="optimizer-grid">
+                      <button id="btnOptRam" class="optimizer-card ram-action">
+                        <span class="optimizer-card-icon">RAM</span>
+                        <span class="optimizer-card-copy"><b>Tối Ưu RAM</b><small>Giảm bộ nhớ tạm</small></span>
+                        <span class="optimizer-arrow">↗</span>
+                        <span class="optimizer-line"><i></i></span>
+                      </button>
+                      <button id="btnOptCpu" class="optimizer-card cpu-action">
+                        <span class="optimizer-card-icon">CPU</span>
+                        <span class="optimizer-card-copy"><b>Tối Ưu CPU</b><small>Ổn định tải xử lý</small></span>
+                        <span class="optimizer-arrow">↗</span>
+                        <span class="optimizer-line"><i></i></span>
+                      </button>
+                      <button id="btnOptFps" class="optimizer-card fps-action">
+                        <span class="optimizer-card-icon">120</span>
+                        <span class="optimizer-card-copy"><b>Tối Ưu FPS</b><small>Ưu tiên frame mượt</small></span>
+                        <span class="optimizer-arrow">↗</span>
+                        <span class="optimizer-line"><i></i></span>
+                      </button>
+                    </div>
+
+                    <div class="maintenance-title"><span>QUICK MAINTENANCE</span><i></i></div>
+                    <div class="maintenance-grid">
+                      <button id="btnClearConsole" class="maintenance-btn"><span>×</span><b>Xóa Console</b><small>CLEAN LOGS</small></button>
+                      <button id="btnCleanRam" class="maintenance-btn"><span>R</span><b>Dọn RAM</b><small>CLEAR CACHE</small></button>
+                      <button id="btnCleanCpu" class="maintenance-btn"><span>C</span><b>Dọn CPU</b><small>RESET LOAD</small></button>
+                    </div>
+                  </div>
+                </section>
+
+                <section class="panel">
+                  <div class="panelHead">
+                    <div class="name">Console</div>
+                    <div class="meta">
+                      <span class="badge">Logs: <b id="mLogs">0</b></span>
+                      <span class="badge">Errors: <b id="mErrs">0</b></span>
+                    </div>
+                  </div>
+
+                  <div class="panelBody consoleBox">
+                    <div id="consoleView" class="consoleView" aria-label="console"></div>
+
+                    <div class="consoleInput">
+                      <input id="cmd" type="text" placeholder="Nhập lệnh JS rồi Enter..." autocomplete="off" />
+                      <button id="btnExec">Run</button>
+                    </div>
+                  </div>
+                </section>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="booster-section is-hidden" id="boosterSection">
+          <div id="boosterBox" class="game-hub">
+            <div class="game-hub-head">
+              <div>
+                <div class="game-kicker">Blaze Tech Cracked BOOST ENGINE</div>
+                <h2 class="booster-title">GAMES</h2>
+                <p class="game-subtitle">Thư viện game • chọn game rồi tối ưu & mở trực tiếp</p>
+              </div>
+              <button class="game-filter-btn" id="gameFilterBtn" type="button" aria-label="Bộ lọc game">
+                <span>☷</span>
+              </button>
+            </div>
+
+            <div class="game-search-wrap">
+              <span class="game-search-icon">⌕</span>
+              <input id="gameSearch" type="search" placeholder="Tìm game..." autocomplete="off" />
+              <span class="game-count" id="gameCount">10</span>
+            </div>
+
+            <div class="game-tabs" id="gameTabs" role="tablist">
+              <button class="game-tab is-active" data-category="all" type="button">Tất cả</button>
+              <button class="game-tab" data-category="battle" type="button">Battle Royale</button>
+              <button class="game-tab" data-category="moba" type="button">MOBA</button>
+              <button class="game-tab" data-category="fps" type="button">FPS</button>
+            </div>
+
+            <div class="featured-game" id="featuredGame"></div>
+            <div class="game-list-head">
+              <h3>Popular <span class="app-store-inline">App Store</span> Games</h3>
+            </div>
+            <div class="game-list" id="gameList"></div>
+            <div class="game-empty" id="gameEmpty" hidden>Không tìm thấy game phù hợp.</div>
+          </div>
+        </section>
+      </div>
+    </div>
+    <nav class="bottom-nav" aria-label="Primary">
+      <a class="bottom-item is-active" href="#home" id="homeBottom" aria-label="Home"><span class="bottom-icon"><svg viewBox="0 0 24 24"><path d="M3.5 10.8 12 3.7l8.5 7.1"/><path d="M5.5 9.8v10h13v-10"/><path d="M9.5 19.8v-6h5v6"/></svg></span><span class="bottom-label">HOME</span></a>
+      <a class="bottom-item" href="#premiumSection" id="functionBottom" aria-label="Aim"><span class="bottom-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="6.2"/><circle cx="12" cy="12" r="1.7"/><path d="M12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3"/></svg></span><span class="bottom-label">AIM</span></a>
+      <a class="bottom-item" href="#monitorSection" id="monitorBottom" aria-label="Live"><span class="bottom-icon"><svg viewBox="0 0 24 24"><rect x="3.2" y="4" width="17.6" height="13" rx="2"/><path d="M8 20h8M12 17v3"/><path d="M6.5 13.2 9.2 10l2.3 2.1 3.1-4 2.4 2.2"/></svg></span><span class="bottom-label">LIVE</span></a>
+      <a class="bottom-item" href="#boosterSection" id="boosterBottom" aria-label="Boost"><span class="bottom-icon"><svg viewBox="0 0 24 24"><path d="M13.2 2.8c.5 3.2-.5 4.8-2.2 6.2-1.5 1.3-2.4 2.8-2.4 4.7a5.4 5.4 0 0 0 10.8 0c0-3.4-2.1-5.8-4.6-7.9-.1 2-.7 3-1.7 3.9"/><path d="M8.1 18.4c.8 1.4 2 2.1 3.9 2.1 1.7 0 3-.6 3.8-1.9"/></svg></span><span class="bottom-label">BOOST</span></a>
+    </nav>
+    </div>
+<script>
+document.querySelectorAll(".nav-item").forEach(btn => {
+  btn.addEventListener("click", () => {
+    const name = btn.innerText.toLowerCase();
+    const booster = document.getElementById("boosterBox");
+
+    if (name.includes("realtime")) {
+      booster.style.display = "flex";
+    } else {
+      booster.style.display = "none";
+    }
+  });
+});
+
+function openGame(link) {
+  window.location.href = link;
+}
+<script>
+(function(){
+  const fps=document.getElementById('ftFps'), ping=document.getElementById('ftPing'), ram=document.getElementById('ftRam');
+  if(!fps) return;
+  setInterval(()=>{
+    fps.textContent=String(58+Math.floor(Math.random()*4));
+    ping.textContent=String(22+Math.floor(Math.random()*15));
+    ram.textContent=String(38+Math.floor(Math.random()*16));
+  },1600);
+})();
+</script></script>
+<script>
+  window.sysSettings = { noti: true };
+  window.showToast = function(text, isError) {
+    if(!window.sysSettings.noti) return;
+    if(typeof isError === 'undefined') isError = false;
+    var toast = document.getElementById('action-toast'); 
+    document.getElementById('toast-text').innerText = text; 
+    toast.className = 'action-toast show ' + (isError ? 'error' : 'success'); 
+    
+    clearTimeout(window.toastTimer); 
+    window.toastTimer = setTimeout(function() { 
+        toast.classList.remove('show'); 
+    }, 2500);
+  }
+  function sendLocalPushBanner(title, bodyMsg) {
+      if (!window.sysSettings || !window.sysSettings.noti) return; 
+      if (!("Notification" in window)) {
+        console.log("Trình duyệt không hỗ trợ Push Notification.");
+        return;
+      }
+      const options = {
+        body: bodyMsg,
+        icon: 'img/avt.gif', // Thay icon phù hợp nếu cần
+        badge: 'img/avt.gif'
+      };
+
+      if (Notification.permission === "granted") {
+        if ('serviceWorker' in navigator && navigator.serviceWorker.ready) {
+            navigator.serviceWorker.ready.then(function(registration) {
+                registration.showNotification(title, options);
+            });
+        } else {
+            new Notification(title, options);
+        }
+      } else if (Notification.permission !== "denied") {
+        Notification.requestPermission().then(function(permission) {
+            if (permission === "granted") {
+                if ('serviceWorker' in navigator) {
+                    navigator.serviceWorker.ready.then(function(registration) {
+                        registration.showNotification(title, options);
+                    });
+                } else {
+                    new Notification(title, options);
+                }
+            }
+        });
+      }
+  }
+  document.addEventListener('DOMContentLoaded', function() {
+      if ("Notification" in window && Notification.permission !== "granted" && Notification.permission !== "denied") {
+          Notification.requestPermission();
+      }
+  });
+  document.querySelectorAll('.sound-toggle').forEach(function(input) {
+      input.addEventListener('change', function(e) {
+          // Tìm tên tính năng tương ứng
+          var featureItem = this.closest('.feature-item');
+          var featureName = featureItem ? featureItem.querySelector('.feature-name').innerText.trim() : "TÍNH NĂNG";
+
+          if (this.checked) { 
+              window.showToast("ĐÃ BẬT " + featureName); 
+              sendLocalPushBanner("Blaze Tech Cracked", "⚡ APP ĐANG HOẠT ĐỘNG: Bật " + featureName + " thành công. Vào game ngay!");
+          } else { 
+              window.showToast("ĐÃ TẮT " + featureName, true); 
+              sendLocalPushBanner("HỆ THỐNG", "❌ Đã ngắt kết nối: " + featureName);
+          }
+      });
+  });
+  let currentXhColor = '#ff0044'; 
+  let currentXhType = 1;
+
+  const xhTemplates = [
+      `<svg viewBox="0 0 100 100" class="xh-svg"><circle cx="50" cy="50" r="5" fill="var(--xh-color)"/><line x1="25" y1="25" x2="36" y2="36" stroke="#b0b5ba" stroke-width="5.5" stroke-linecap="round"/><line x1="75" y1="25" x2="64" y2="36" stroke="#b0b5ba" stroke-width="5.5" stroke-linecap="round"/><line x1="25" y1="75" x2="36" y2="64" stroke="#b0b5ba" stroke-width="5.5" stroke-linecap="round"/><line x1="75" y1="75" x2="64" y2="64" stroke="#b0b5ba" stroke-width="5.5" stroke-linecap="round"/></svg>`,
+      `<svg viewBox="0 0 100 100" class="xh-svg"><path d="M 36 24 L 28 16 L 16 28 L 24 36" fill="none" stroke="var(--xh-color)" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M 64 24 L 72 16 L 84 28 L 76 36" fill="none" stroke="var(--xh-color)" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M 24 64 L 16 72 L 28 84 L 36 76" fill="none" stroke="var(--xh-color)" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M 76 64 L 84 72 L 72 84 L 64 76" fill="none" stroke="var(--xh-color)" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="50" cy="30" r="3.5" fill="#b91c1c"/><circle cx="50" cy="70" r="3.5" fill="#b91c1c"/><circle cx="30" cy="50" r="3.5" fill="#b91c1c"/><circle cx="70" cy="50" r="3.5" fill="#b91c1c"/><circle cx="50" cy="50" r="3.5" fill="#ffffff"/></svg>`,
+      `<svg viewBox="0 0 100 100" class="xh-svg"><circle cx="50" cy="50" r="40" fill="none" stroke="var(--xh-color)" stroke-width="3"/><polygon points="16,16 31,24 24,31" fill="var(--xh-color)"/><polygon points="84,16 69,24 76,31" fill="var(--xh-color)"/><polygon points="16,84 24,69 31,76" fill="var(--xh-color)"/><polygon points="84,84 76,69 69,76" fill="var(--xh-color)"/><line x1="5" y1="50" x2="35" y2="50" stroke="var(--xh-color)" stroke-width="3"/><line x1="65" y1="50" x2="95" y2="50" stroke="var(--xh-color)" stroke-width="3"/><line x1="50" y1="5" x2="50" y2="35" stroke="var(--xh-color)" stroke-width="3"/><line x1="50" y1="65" x2="50" y2="95" stroke="var(--xh-color)" stroke-width="3"/><line x1="20" y1="45" x2="20" y2="55" stroke="var(--xh-color)" stroke-width="2"/><line x1="30" y1="45" x2="30" y2="55" stroke="var(--xh-color)" stroke-width="2"/><line x1="70" y1="45" x2="70" y2="55" stroke="var(--xh-color)" stroke-width="2"/><line x1="80" y1="45" x2="80" y2="55" stroke="var(--xh-color)" stroke-width="2"/><line x1="45" y1="20" x2="55" y2="20" stroke="var(--xh-color)" stroke-width="2"/><line x1="45" y1="30" x2="55" y2="30" stroke="var(--xh-color)" stroke-width="2"/><line x1="45" y1="70" x2="55" y2="70" stroke="var(--xh-color)" stroke-width="2"/><line x1="45" y1="80" x2="55" y2="80" stroke="var(--xh-color)" stroke-width="2"/><circle cx="50" cy="50" r="15" fill="none" stroke="#ffffff" stroke-width="3"/><circle cx="50" cy="50" r="7" fill="#ff0000"/></svg>`,
+      `<svg viewBox="0 0 100 100" class="xh-svg"><circle cx="50" cy="50" r="24" fill="none" stroke="#d32f2f" stroke-width="3.5"/><polygon points="46,24 54,24 50,12" fill="#d32f2f"/><polygon points="46,76 54,76 50,88" fill="#d32f2f"/><polygon points="24,46 24,54 12,50" fill="#d32f2f"/><polygon points="76,46 76,54 88,50" fill="#d32f2f"/><line x1="24" y1="50" x2="76" y2="50" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"/><line x1="50" y1="24" x2="50" y2="76" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"/><circle cx="50" cy="50" r="3.5" fill="var(--xh-color)"/></svg>`
+  ];
+
+  window.setXhType = function(type) {
+      currentXhType = type;
+      document.querySelectorAll('.xh-option').forEach(el => el.classList.remove('active'));
+      document.getElementById('xh-opt-' + type).classList.add('active');
+      updateXh();
+  }
+
+  window.updateXh = function() {
+      const sizeSlider = document.getElementById('xh-size-slider');
+      const xSlider = document.getElementById('xh-x-slider');
+      const ySlider = document.getElementById('xh-y-slider');
+
+      const size = sizeSlider ? sizeSlider.value : 1;
+      const x = xSlider ? xSlider.value : 0;
+      const y = ySlider ? ySlider.value : 0;
+
+      const sizeLbl = document.getElementById('xh-size-lbl');
+      const xLbl = document.getElementById('xh-x-lbl');
+      const yLbl = document.getElementById('xh-y-lbl');
+
+      if(sizeLbl) sizeLbl.innerText = size + 'x';
+      if(xLbl) xLbl.innerText = x + 'px';
+      if(yLbl) yLbl.innerText = y + 'px';
+
+      const vh = document.getElementById('virtual-crosshair');
+      if (vh) {
+          vh.style.setProperty('--xh-color', currentXhColor);
+          vh.style.setProperty('--xh-size', size);
+          vh.style.setProperty('--xh-x', x + 'px');
+          vh.style.setProperty('--xh-y', y + 'px');
+          vh.innerHTML = xhTemplates[currentXhType - 1];
+      }
+      
+      for(let i=1; i<=4; i++) {
+          const preview = document.getElementById('preview-' + i);
+          if (preview) { preview.style.setProperty('--xh-color', currentXhColor); preview.innerHTML = xhTemplates[i - 1]; }
+      }
+      
+      if (window.AndroidBridge && window.AndroidBridge.updateCrosshairSettings) {
+          window.AndroidBridge.updateCrosshairSettings(currentXhType, currentXhColor, size, x, y);
+      }
+  }
+
+  document.addEventListener("DOMContentLoaded", function() {
+      setTimeout(() => { updateXh(); }, 500);
+
+      const chToggle = document.getElementById('crosshair-toggle');
+      if (chToggle) {
+          chToggle.addEventListener('change', function(e) {
+              const isChecked = this.checked;
+              
+              if (window.AndroidBridge && window.AndroidBridge.toggleVirtualCrosshair) {
+                  document.getElementById('virtual-crosshair').style.display = 'none';
+                  window.AndroidBridge.toggleVirtualCrosshair(isChecked);
+                  if (isChecked) setTimeout(() => { updateXh(); }, 300);
+              } else {
+                  document.getElementById('virtual-crosshair').style.display = isChecked ? 'block' : 'none';
+              }
+              localStorage.setItem("crosshair-enabled", isChecked);
+          });
+      }
+
+      const vcWheel = document.getElementById('vcColorWheel');
+      const vcThumb = document.getElementById('vcColorThumb');
+      let isDraggingColor = false;
+
+      const handleColorWheel = (e) => {
+          if(!vcWheel || !vcThumb) return;
+          const rect = vcWheel.getBoundingClientRect();
+          const centerX = rect.left + rect.width / 2;
+          const centerY = rect.top + rect.height / 2;
+          
+          const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+          const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+
+          const dx = clientX - centerX;
+          const dy = clientY - centerY;
+          
+          let angle = Math.atan2(dy, dx) * (180 / Math.PI);
+          if (angle < 0) angle += 360;
+
+          const hue = Math.round(angle);
+          const radius = rect.width / 2;
+          const thumbRadius = radius - 10; 
+          const thumbX = radius + thumbRadius * Math.cos(angle * Math.PI / 180);
+          const thumbY = radius + thumbRadius * Math.sin(angle * Math.PI / 180);
+
+          vcThumb.style.left = `${thumbX}px`;
+          vcThumb.style.top = `${thumbY}px`;
+          
+          currentXhColor = `hsl(${hue}, 100%, 50%)`;
+          vcThumb.style.background = currentXhColor;
+
+          updateXh();
+      };
+
+      if(vcWheel) {
+          vcWheel.addEventListener('mousedown', (e) => { isDraggingColor = true; handleColorWheel(e); });
+          window.addEventListener('mousemove', (e) => { if (isDraggingColor) handleColorWheel(e); });
+          window.addEventListener('mouseup', () => { isDraggingColor = false; });
+          vcWheel.addEventListener('touchstart', (e) => { isDraggingColor = true; handleColorWheel(e); }, {passive: false});
+          window.addEventListener('touchmove', (e) => { 
+              if (isDraggingColor) { e.preventDefault(); handleColorWheel(e); }
+          }, {passive: false});
+          window.addEventListener('touchend', () => { isDraggingColor = false; });
+      }
+  });
+</script>
+
+<script>
+  (function() {
+    const canvas = document.getElementById('particleCanvas');
+    const ctx = canvas.getContext('2d');
+    let width, height;
+
+    function resizeCanvas() {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+    }
+    
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    const particles = [];
+    const numParticles = 70; 
+
+    class Particle {
+      constructor() {
+        this.x = Math.random() * width;
+        this.y = Math.random() * height;
+        this.vx = (Math.random() - 0.5) * 0.8;
+        this.vy = (Math.random() - 0.5) * 0.8;
+        this.size = Math.random() * 2.5 + 1; 
+        this.alpha = Math.random() * 0.25 + 0.1; 
+      }
+
+      update() {
+        this.x += this.vx;
+        this.y += this.vy;
+
+        if (this.x < 0) this.x = width;
+        if (this.x > width) this.x = 0;
+        if (this.y < 0) this.y = height;
+        if (this.y > height) this.y = 0;
+      }
+
+      draw() {
+        ctx.save();
+        ctx.globalAlpha = this.alpha;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fillStyle = typeof currentXhColor !== 'undefined' ? currentXhColor : '#ff0044';
+        ctx.shadowBlur = 4;
+        ctx.shadowColor = ctx.fillStyle;
+        ctx.fill();
+        ctx.restore();
+      }
+    }
+
+    for (let i = 0; i < numParticles; i++) {
+      particles.push(new Particle());
+    }
+
+    function animate() {
+      ctx.clearRect(0, 0, width, height);
+      particles.forEach(p => {
+        p.update();
+        p.draw();
+      });
+      requestAnimationFrame(animate);
+    }
+    
+    animate();
+  })();
+</script>
+<script id="flame-v11-live">
+(()=>{const fps=document.getElementById('ftFps'),ping=document.getElementById('ftPing'),ram=document.getElementById('ftRam'),sys=document.getElementById('ftSystem');if(!fps||!ping||!ram||!sys)return;let f=0,last=performance.now();function loop(t){f++;if(t-last>=1000){fps.textContent=Math.round(f*1000/(t-last));f=0;last=t}requestAnimationFrame(loop)}requestAnimationFrame(loop);async function p(){let t=performance.now();try{await fetch(location.href.split('#')[0],{method:'HEAD',cache:'no-store'});ping.textContent=Math.round(performance.now()-t)}catch(e){ping.textContent='--'}}p();setInterval(p,5000);function r(){if(performance.memory&&performance.memory.jsHeapSizeLimit){ram.textContent=Math.min(99,Math.round(performance.memory.usedJSHeapSize/performance.memory.jsHeapSizeLimit*100))}else ram.textContent='--'}r();setInterval(r,2500);function o(){sys.textContent=navigator.onLine?'ONLINE':'OFFLINE';sys.classList.toggle('online',navigator.onLine)}o();addEventListener('online',o);addEventListener('offline',o)})();
+</script>
+    <script src="app.js"></script>
+    <script src="key.js"></script>
+    <script src="codeblazetech.js"></script>
+    <script src="codeturbo.js"></script>
+    <script src="codetech.js"></script>
+    <script src="codetech1.js"></script>
+    <script src="codetech2.js"></script>
+    <script src="codetech3.js"></script>
+    <script src="codetech4.js"></script>
+    <script src="codetech5.js"></script>
+    <script src="codetech6.js"></script>
+    <script src="codetech7.js"></script>
+    <script src="codetech8.js"></script>
+    <script src="codetech9.js"></script>
+    <script src="codetech10.js"></script>
+    <script src="codetech11.js"></script>
+    <script src="codetech12.js"></script>
+    <script src="codetech13.js"></script>
+    <script src="codetech14.js"></script>
+    <script src="codetech15.js"></script>
+    <script src="codetech16.js"></script>
+    <script src="codetech17.js"></script>
+    <script src="codetech18.js"></script>
+    <script src="codetech19.js"></script>
+    <script src="codetech20.js"></script>
+    <script src="script.js"></script>
+<script id="flame-premium-switch-js">
+(function(){
+  function sync(el){
+    const item=el.closest('.feature-item');
+    if(!item) return;
+    item.classList.toggle('is-enabled',el.checked);
+    const name=item.querySelector('.feature-name');
+    if(name) name.dataset.state=el.checked?'ON':'OFF';
+  }
+  document.querySelectorAll('.sound-toggle').forEach(function(el){
+    sync(el);
+    el.addEventListener('change',function(){sync(this)});
+  });
+})();
+</script>
+
+</body>
+</html><script async src="/.netlify/scripts/hud?variant=public" data-nf-variant="public" data-netlify-site-id="d3394b64-5dcf-40f1-9721-7d8225d92440" data-app-host="app.netlify.com"></script>
